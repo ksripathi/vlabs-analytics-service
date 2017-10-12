@@ -67,15 +67,8 @@
         "build_steps": {
           "configure": [],
           "pre_build": [],
-          "build": [
-              "cd ../;make build"
-          ],
-          "post_build": [
-	      "cp -R ../build/code/* /usr/share/nginx/html/",
-              "chmod -R 755 /usr/share/nginx/html/",
-              "mkdir /usr/share/nginx/html/logs",
-              "chmod -R 777 /usr/share/nginx/html/logs"
-          ],
+          "build": [],
+          "post_build": [],
           "status": []
         }
       }
@@ -94,18 +87,7 @@
         "storage": {
           "min_required": "10gb"
         },
-        "installer": [
-	    "apt-get update -y",
-	    "apt-get install python-pip python-dev nginx",
-	    "python /usr/share/nginx/html/deployment/setup.py install",
-	    "cp /usr/share/nginx/html/deployment/analytics-service.conf /etc/init/",
-	    "start analytics-service",
-	    "cp /usr/share/nginx/html/deployment/analytics-service /etc/nginx/sites-available/",
-	    "ln -s /etc/nginx/sites-available/analytics-service /etc/nginx/sites-enabled",
-	    "rm -v /etc/nginx/sites-enabled/default",
-	    "nginx -t",
-	    "service nginx restart"
-        ],
+        "installer": [],
         "lab_actions": {
           "init"    : [],
           "shutdown": [],
